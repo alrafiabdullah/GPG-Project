@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Payload(models.Model):
-    passphrase = models.CharField()
-    message = models.CharField()
+    passphrase = models.CharField(max_length=256)
+    message = models.TextField(max_length=8192)
+    decrypted_message = models.CharField(max_length=8192)
 
-   def __str__(self):
+    def __str__(self):
         return self.passphrase
-    
